@@ -1,0 +1,8 @@
+export {default as Posts} from "./Posts"
+export {default as Error} from "./Error"
+export {default as Login} from "./Login"
+export {default as Navbar} from "./Navbar"
+export {default as Profile} from "./Profile"
+export {default as SinglePost} from "./SinglePost"
+export {default as Footer} from "./Footer"
+export {default as Register} from "./Register"
