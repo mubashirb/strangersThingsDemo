@@ -24,4 +24,6 @@ export default function Posts({posts, setPosts}){
             </div>
         })
     )
+
+
 }

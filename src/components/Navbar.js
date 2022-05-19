@@ -13,6 +13,9 @@ export default function Navbar({loggedIn, Logout}){
         {
         !loggedIn?<Link to="Register"> Register</Link>:null
         }
+        {
+        loggedIn?<Link to="SinglePost"> Single Post</Link>:null
+        }
 
         </>
     )

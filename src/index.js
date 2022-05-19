@@ -49,6 +49,7 @@ function App(){
             <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
             <Route path = "/" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
+            <Route path = "SinglePost" element={<SinglePost/>}></Route>
 
         </Routes>
         
