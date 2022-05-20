@@ -2,7 +2,7 @@ import react, {useState , useEffect} from "react";
 import reactdomclient  from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
-export default function SinglePost(){
+export default function SinglePost({token, setPosts}){
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [Price, setPrice] = useState("");
@@ -10,22 +10,47 @@ export default function SinglePost(){
     const [willDeliver, setWillDeliver] = useState(false)
 
     async function createPost(){
-        
-    }
-    return (
+        try{
+            const response = await fetch('https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/posts', {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+              post: {
+                title: title,
+                description: description,
+                price: Price,
+                willDeliver: willDeliver
+              }
+            })
+          })
+          let data = await response.json()
+                setPosts(data.data.post)
+
+            }catch(err){
+                console.log(err)
+            }
+        }
+        return (
             <>
-            <form>
+            <form onSubmit={(event)=>{
+            event.preventDefault()
+            createPost()
+        }}>
                 <label>POST</label>
                 <br></br>
                 <label>title</label>
-                <input type="text" placeholder="name of the sale item"></input>
+                <input type="text" value={title} onChange={(event)=>{setTitle(event.target.value)}} placeholder="name of the sale item"></input>
                 <label>description</label>
-                <input type="text" placeholder="decription of the item"></input>
+                <input type="text" value={description} onChange={(event)=>{setDescription(event.target.value)}} placeholder="decription of the item"></input>
                 <label>Price</label>
-                <input type="text"></input>
+                <input type="text" value={Price} onChange={(event)=>{setPrice(event.target.value)}}></input>
                 <label>Location</label>
-                <input type="text"></input>
-                <label type="boolean">willDeliver</label>
+                <input type="text" value={Location} onChange={(event)=>{setLocation(event.target.value)}}></input>
+                <label type="checkbox" value={willDeliver} onChange={(event)=>{setWillDeliver(event.target.value)}}>willDeliver</label>
+                {/* <checkbox></checkbox> */}
                 <button type="submit">submit</button>
             </form>
             </>

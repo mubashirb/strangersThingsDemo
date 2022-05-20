@@ -43,13 +43,13 @@ function App(){
         <>
         <Navbar loggedIn={loggedIn} Logout={Logout}/>
         <Routes>
-            <Route path = "Posts" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
+            <Route path = "Posts" element={<Posts setSelectedPost = {setSelectedPost} selectedPost = {selectedPost} token={token} posts={posts} setPosts = {setPosts}/>}></Route>
             <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
             <Route path = "Profile" element={<Profile/>}></Route>
             <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
             <Route path = "/" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
-            <Route path = "SinglePost" element={<SinglePost/>}></Route>
+            <Route path = "SinglePost" element={<SinglePost token = {token} setPosts = {setPosts}/>}></Route>
 
         </Routes>
         
