@@ -44,7 +44,12 @@ return(
     
     <form onSubmit={(event)=>{
             event.preventDefault()
+            if (password.length<8){
+              alert("password must contain atleast 8 characters")
+            }
+            else{
             registerUser()
+            }
         }}>
        <label>Desired Username</label> 
        <input type="text" value={username} onChange={(event)=> {registerUsername(event.target.value)}}></input>

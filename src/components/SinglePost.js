@@ -49,8 +49,8 @@ export default function SinglePost({token, setPosts}){
                 <input type="text" value={Price} onChange={(event)=>{setPrice(event.target.value)}}></input>
                 <label>Location</label>
                 <input type="text" value={Location} onChange={(event)=>{setLocation(event.target.value)}}></input>
-                <label type="checkbox" value={willDeliver} onChange={(event)=>{setWillDeliver(event.target.value)}}>willDeliver</label>
-                {/* <checkbox></checkbox> */}
+                <label type="checkbox" value={willDeliver} >willDeliver</label>
+                <input type="checkbox" onChange={(event)=>{setWillDeliver(true)}}></input>
                 <button type="submit">submit</button>
             </form>
             </>
