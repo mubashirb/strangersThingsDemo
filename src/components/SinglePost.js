@@ -8,6 +8,7 @@ export default function SinglePost({token, setPosts}){
     const [Price, setPrice] = useState("");
     const [Location, setLocation] = useState("");
     const [willDeliver, setWillDeliver] = useState(false)
+    const navigate = useNavigate()
 
     async function createPost(){
         try{
@@ -35,24 +36,32 @@ export default function SinglePost({token, setPosts}){
         }
         return (
             <>
+            <div id="postForm">
             <form onSubmit={(event)=>{
             event.preventDefault()
             createPost()
+            navigate("/Posts")
         }}>
                 <label>POST</label>
                 <br></br>
-                <label>title</label>
+               
                 <input type="text" value={title} onChange={(event)=>{setTitle(event.target.value)}} placeholder="name of the sale item"></input>
-                <label>description</label>
+                <br></br>
+                
                 <input type="text" value={description} onChange={(event)=>{setDescription(event.target.value)}} placeholder="decription of the item"></input>
-                <label>Price</label>
-                <input type="text" value={Price} onChange={(event)=>{setPrice(event.target.value)}}></input>
-                <label>Location</label>
-                <input type="text" value={Location} onChange={(event)=>{setLocation(event.target.value)}}></input>
-                <label type="checkbox" value={willDeliver} >willDeliver</label>
+                <br></br>
+                
+                <input type="text" placeholder = "price of the item" value={Price} onChange={(event)=>{setPrice(event.target.value)}}></input>
+                <br></br>
+                
+                <input type="text" placeholder = "Location" value={Location} onChange={(event)=>{setLocation(event.target.value)}}></input>
+                <br></br>
+                <label type="checkbox" value={willDeliver} >Delivery</label>
                 <input type="checkbox" onChange={(event)=>{setWillDeliver(true)}}></input>
+                <br></br>
                 <button type="submit">submit</button>
             </form>
+            </div>
             </>
             )
 }   //search results from art collector: reference  
