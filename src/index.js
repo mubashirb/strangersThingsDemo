@@ -4,23 +4,24 @@ import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-do
 
 
 import{
-    Posts,
+    Home,
     Error,
     Footer,
     Login,
     Navbar,
-    Profile,
-    SinglePost,
-    Register
-
-
+    Activities,
+    MyRoutines,
+    Register,
+    Routines
 }from "./components"
 
+const app = require("./app")
+
 function App(){
-    const [posts, setPosts] = useState([])
+   
     const [loggedIn, setLoggedIn]=useState(false)
     const [token, setToken] = useState("")
-    const [selectedPost, setSelectedPost] = useState({})
+    
     const navigate = useNavigate()
     
 
