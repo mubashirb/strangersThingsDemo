@@ -3,7 +3,7 @@ import react, { useState, useEffect } from "react";
 
 
 
-export default function Profile({ token }) {
+export default function ({ token }) {
     const [userPosts, setUserPosts] = useState([])
     const [userMessages, setUserMessages] = useState([])
     const [message, setMessage] = useState("")
@@ -11,7 +11,7 @@ export default function Profile({ token }) {
     useEffect(() => {
         async function userData() {
             try {
-                const response = await fetch('https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/users/me', {
+                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
@@ -53,17 +53,15 @@ export default function Profile({ token }) {
         
         <>
         <fieldset>
-            <legend>USER Posts</legend>
+            <legend> USER Routines</legend>
         {userPosts.map((post) => {
-            return (<div key={post._id}>
+            return (<div key={routine._id}>
                 <fieldset>
-                <div > Title:{post.title}</div>
-                <div> Description: {post.description}</div>
+                <div > Title:{routine.title}</div>
+                <div> Description: {routine.content}</div>
                 <div>{post.willDeliver? <div>Delivery: YES</div>: <div>Delivery: NO</div>}</div>
-                <div>Price: {post.price}</div>
                 <div>Created on:{post.createdAt}</div>
-                <div> Location: {post.location}</div>
-                <legend>{!post.active? <div id="deleted">Deleted</div>: <div id="active">Active</div>}</legend>
+                <legend>{!routine.active? <div id="deleted">Deleted</div>: <div id="active">Active</div>}</legend>
                 
                 <div></div>
                 </fieldset>

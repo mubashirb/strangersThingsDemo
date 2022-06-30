@@ -6,7 +6,7 @@ export default function Posts({ posts, setPosts, token, loggedIn }) {
     useEffect(() => {
         async function getPosts() {
             try {
-                const response = await fetch('https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/posts', {
+                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`

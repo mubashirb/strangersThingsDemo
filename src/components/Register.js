@@ -1,5 +1,7 @@
 import react, {useState , useEffect} from "react";
 import {  useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 export default function Register({setToken, setLoggedIn}){
     const[username, registerUsername] = useState("")
@@ -8,7 +10,7 @@ export default function Register({setToken, setLoggedIn}){
 
     async function registerUser(){
         try{
-            const response = await fetch('https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/users/register', {
+            const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
@@ -58,7 +60,7 @@ return(
        <button type = "submit">SET</button>
    
     </form>
-
+    <Link to="/Login">Log In</Link>
     </>
 
 )

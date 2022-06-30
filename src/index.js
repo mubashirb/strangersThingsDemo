@@ -37,7 +37,7 @@ function App(){
         localStorage.removeItem("token")
         setLoggedIn(false)
         setToken("")
-        navigate("/Posts")
+        navigate("/login")
 
     }
 

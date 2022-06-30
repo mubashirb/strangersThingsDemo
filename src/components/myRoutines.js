@@ -12,7 +12,7 @@ export default function SinglePost({token, setPosts}){
 
     async function createPost(){
         try{
-            const response = await fetch('https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/posts', {
+            const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines/{$id}', {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
