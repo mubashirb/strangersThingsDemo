@@ -4,15 +4,15 @@ import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-do
 
 
 import{
-    Home,
-    Error,
-    Footer,
+    //Home,
+    //Error,
+    //Footer,
     Login,
-    Navbar,
-    Activities,
-    MyRoutines,
+    //Navbar,
+    //Activities,
+    //MyRoutines,
     Register,
-    Routines
+    //Routines
 }from "./components"
 
 const app = require("./app")
@@ -47,13 +47,13 @@ function App(){
         <>
         <Navbar loggedIn={loggedIn} Logout={Logout}/>
         <Routes>
-            <Route path = "Posts" element={<Posts loggedIn = {loggedIn} token={token} posts={posts} setPosts = {setPosts}/>}></Route>
+            <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token={token} posts={posts} setPosts = {setPosts}/>}></Route>
             <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
-            <Route path = "Profile" element={<Profile setSelectedPost = {setSelectedPost} selectedPost = {selectedPost} token = {token} />}></Route>
+            <Route path = "Home" element={<Profile setSelectedPost = {setSelectedPost} selectedPost = {selectedPost} token = {token} />}></Route>
             <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
             <Route path = "/" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
-            <Route path = "SinglePost" element={<SinglePost token = {token} setPosts = {setPosts}/>}></Route>
+            <Route path = "MyRoutines" element={<MyRouintes token = {token} setPosts = {setPosts}/>}></Route>
 
         </Routes>
         

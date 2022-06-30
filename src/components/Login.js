@@ -34,7 +34,7 @@ export default function Login({ setToken, setLoggedIn }) {
       console.log(result.data.token)
       setToken(result.data.token)
       setLoggedIn(true)
-      setUserName(username)
+      setUsername(username)
       localStorage.setItem("token", result.data.token)
       navigate("/Home")
     } catch (err) {

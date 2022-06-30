@@ -2,7 +2,7 @@ import react, {useState , useEffect} from "react";
 import reactdomclient  from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
-export default function SinglePost({token, setPosts}){
+export default function MyRouintes({token, setPosts}){
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [Price, setPrice] = useState("");
@@ -10,7 +10,7 @@ export default function SinglePost({token, setPosts}){
     const [willDeliver, setWillDeliver] = useState(false)
     const navigate = useNavigate()
 
-    async function createPost(){
+    async function createMyRoutines(){
         try{
             const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines/{$id}', {
             method: "POST",
