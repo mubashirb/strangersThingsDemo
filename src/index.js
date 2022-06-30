@@ -1,21 +1,19 @@
-import react, {useState , useEffect} from "react";
+import React, {useState , useEffect} from "react";
 import reactdomclient  from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
 
 import{
-    //Home,
-    //Error,
-    //Footer,
+    Home,
+    Error,
+    Footer,
     Login,
-    //Navbar,
-    //Activities,
-    //MyRoutines,
+    Navbar,
+    Activities,
+    MyRoutines,
     Register,
-    //Routines
+    Routines
 }from "./components"
-
-const app = require("./app")
 
 function App(){
    
@@ -47,13 +45,14 @@ function App(){
         <>
         <Navbar loggedIn={loggedIn} Logout={Logout}/>
         <Routes>
-            <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token={token} posts={posts} setPosts = {setPosts}/>}></Route>
+            
+            <Route path = "/" element={<Routines />}></Route>
+            <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token={token}/>}></Route>
             <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
-            <Route path = "Home" element={<Profile setSelectedPost = {setSelectedPost} selectedPost = {selectedPost} token = {token} />}></Route>
+            <Route path = "Home" element={<Routines token = {token} />}></Route>
             <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
+            <Route path = "MyRoutines" element={<MyRoutines token = {token}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
-            <Route path = "/" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
-            <Route path = "MyRoutines" element={<MyRouintes token = {token} setPosts = {setPosts}/>}></Route>
 
         </Routes>
         
