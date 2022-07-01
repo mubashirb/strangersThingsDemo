@@ -4,9 +4,7 @@ import react, { useState, useEffect } from "react";
 
 
 export default function ({ token }) {
-    const [userPosts, setUserPosts] = useState([])
-    const [userMessages, setUserMessages] = useState([])
-    const [message, setMessage] = useState("")
+
     const [userID, setUserID] = useState("")
     useEffect(() => {
         async function userData() {
@@ -18,9 +16,7 @@ export default function ({ token }) {
                     },
                 })
                 let data = await response.json()
-                setUserPosts(data.data.posts)
-                setUserMessages(data.data.messages)
-                setUserID(data.data._id)
+                setUserID(data.user.id)
             } catch (err) {
                 console.error(err)
 
