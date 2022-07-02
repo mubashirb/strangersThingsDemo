@@ -48,6 +48,7 @@ function App(){
             
             <Route path = "/" element={<Routines />}></Route>
             <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token={token}/>}></Route>
+            <Route path = "Activties" element={<Activities loggedIn = {loggedIn} token={token}/>}></Route>
             <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
             <Route path = "Home" element={<Home token = {token} />}></Route>
             <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
