@@ -23,19 +23,16 @@ export default function Login({ setToken, setLoggedIn }) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          user: {
             username: username,
             password: password
-          }
         })
       })
       let result = await response.json()
       //console.log(result)
-      console.log(result.data.token)
-      setToken(result.data.token)
+      console.log(result)
+      setToken(result.token)
       setLoggedIn(true)
-      setUsername(username)
-      localStorage.setItem("token", result.data.token)
+      localStorage.setItem("token", result.token)
       navigate("/Home")
     } catch (err) {
       console.log("Ahh couldn't log in!! " + err)

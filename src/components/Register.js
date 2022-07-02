@@ -1,33 +1,33 @@
-import react, {useState , useEffect} from "react";
+import React, {useState , useEffect} from "react";
 import {  useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 export default function Register({setToken, setLoggedIn}){
-    const[username, registerUsername] = useState("")
-    const[password, registerPassword] = useState("")
+    const[username, setUsername] = useState("")
+    const[password, setPassword] = useState("")
     const navigate = useNavigate()
 
     async function registerUser(){
-        try{
+
+        try {
+
             const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                  user: {
                     username: username,
                     password: password
-                  }
                 })
               })
               let result = await response.json()
-              if (result.data) {
-                setToken(result.data.token)
+              console.log(result)
+              if (result.user) {
+                setToken(result.token)
                 setLoggedIn(true) 
-                localStorage.setItem("token", result.data.token)
-                navigate("/Posts")
+                localStorage.setItem("token", result.token)
               }
               else{
               alert("Username Already Exists!")
@@ -48,15 +48,14 @@ return(
             event.preventDefault()
             if (password.length<8){
               alert("password must contain atleast 8 characters")
-            }
-            else{
+            } else {
             registerUser()
             }
         }}>
        <label>Desired Username</label> 
-       <input type="text" value={username} onChange={(event)=> {registerUsername(event.target.value)}}></input>
+       <input type="text" value={username} onChange={(event)=> {setUsername(event.target.value)}}></input>
        <label>Set Password</label>
-       <input type="text" value ={password} onChange={(event)=>{registerPassword(event.target.value)}}></input>
+       <input type="text" value ={password} onChange={(event)=>{setPassword(event.target.value)}}></input>
        <button type = "submit">SET</button>
    
     </form>
