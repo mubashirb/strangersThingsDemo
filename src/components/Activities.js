@@ -1,4 +1,7 @@
-export default function Activities({ activities, setActivities, token }) {
+import React, { useEffect, useState } from 'react';
+export default function Activities({ loggedIn, token }) {
+
+    const [activities, setActivities ] = useState([]);
 
     useEffect(() => {
 
@@ -10,7 +13,7 @@ export default function Activities({ activities, setActivities, token }) {
 
                 let data = await response.json()
 
-                setActivities(data.data.activities)
+                setActivities(data.activities)
 
             } catch (err) {
                 console.log(err)
@@ -50,8 +53,7 @@ export default function Activities({ activities, setActivities, token }) {
     {
         return (
             <>
-                {
-
+                {   activities ?
                     activities.map((activity) => {
                         return (
                             <div key={activity._id}>
@@ -68,7 +70,7 @@ export default function Activities({ activities, setActivities, token }) {
                                 <br />
                             </div>
                         )
-                    })
+                    }) : null
                 }
             </>
         )
