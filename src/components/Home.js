@@ -6,53 +6,8 @@ import liftgirl from "../images/liftgirl.png";
 
 
 
-<<<<<<< HEAD
 export default function Home() {
     
-=======
-export default function ({ token }) {
-
-    const [userID, setUserID] = useState("")
-    useEffect(() => {
-        async function userData() {
-            try {
-                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/me', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                })
-                let data = await response.json()
-                setUserID(data.user.id)
-            } catch (err) {
-                console.error(err)
-
-            }
-        }
-        userData()
-    }, [token])
-    async function sendMsg(postid){
-        try{
-            let response = await fetch(`https://strangers-things.herokuapp.com/api/2202-vpi-rm-web-pt/posts/${postid}/messages`, {
-                method: "POST",
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                  message: {
-                    content: message
-                  }
-                })
-              })
-              let data = await results.json()
-              
-        }catch(err){
-
-        }
-        
-    }
->>>>>>> 658d1e56a5e9f86eca8743eebafe9cfa1572fb95
     return (
         <div className="home-col">
         {/* needs to be linked to username if not signed in then no name is shown*/}

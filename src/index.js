@@ -17,8 +17,9 @@ import{
 
 function App(){
    
-    const [loggedIn, setLoggedIn]=useState(false)
-    const [token, setToken] = useState("")
+    const [loggedIn, setLoggedIn]=useState(false);
+    const [token, setToken] = useState("");
+    const [userId, setUserId] = useState(0);
     
     const navigate = useNavigate()
     
@@ -47,11 +48,12 @@ function App(){
         <Routes>
             
             <Route path = "/" element={<Routines />}></Route>
-            <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token={token}/>}></Route>
-            <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
+            <Route path = "Routines" element={<Routines loggedIn = {loggedIn} token = {token} userId = {userId}/>}></Route>
+            <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn} setUserId = {setUserId}/>}></Route>
             <Route path = "Home" element={<Home token = {token} />}></Route>
-            <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
-            <Route path = "MyRoutines" element={<MyRoutines token = {token}/>}></Route>
+            <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn} setUserId = {setUserId}/>}></Route>
+            <Route path = "MyRoutines" element={<MyRoutines loggedIn = {loggedIn} token = {token} userId = {userId} />}></Route>
+            
             <Route path = "*" element={<Error/>}></Route>
 
         </Routes>
