@@ -1,66 +1,75 @@
-import React, {useState , useEffect} from "react";
-import {  useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
-export default function Register({setToken, setLoggedIn}){
-    const[username, setUsername] = useState("")
-    const[password, setPassword] = useState("")
-    const navigate = useNavigate()
+export default function Register({ setToken, setLoggedIn }) {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
-    async function registerUser(){
+  async function registerUser() {
 
-        try {
+    try {
 
-            const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
-                method: "POST",
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password
-                })
-              })
-              let result = await response.json()
-              console.log(result)
-              if (result.user) {
-                setToken(result.token)
-                setLoggedIn(true) 
-                localStorage.setItem("token", result.token)
-              }
-              else{
-              alert("Username Already Exists!")
-              }
-              
+      const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password
+        })
+      })
+      let result = await response.json()
+      console.log(result)
+      if (result.user) {
+        setToken(result.token)
+        setLoggedIn(true)
+        localStorage.setItem("token", result.token)
+      }
+      else {
+        alert("Username Already Exists!")
+      }
 
-        }catch(err){
-            console.log("Could not register " + err)
-        }
+
+    } catch (err) {
+      console.log("Could not register " + err)
     }
-   
+  }
 
-return( 
-        
+
+  return (
+
     <>
-    
-    <form onSubmit={(event)=>{
+      <fieldset>
+        <legend>Register</legend>
+        <div className="formLogIn"><center>
+          <div>Register for Monkey Pox</div>
+          <br></br>
+          <form onSubmit={(event) => {
             event.preventDefault()
-            if (password.length<8){
+            if (password.length < 8) {
               alert("password must contain atleast 8 characters")
             } else {
-            registerUser()
+              registerUser()
             }
-        }}>
-       <label>Desired Username</label> 
-       <input type="text" value={username} onChange={(event)=> {setUsername(event.target.value)}}></input>
-       <label>Set Password</label>
-       <input type="text" value ={password} onChange={(event)=>{setPassword(event.target.value)}}></input>
-       <button type = "submit">SET</button>
-   
-    </form>
-    <Link to="/Login">Log In</Link>
+          }}>
+            <label>Desired Username</label>
+            <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+            <br></br>
+            <label>Desired Password</label>
+            <input type="text" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+            <br></br>
+            <button type="submit">REGISTER</button>
+          </form>
+          <br></br>
+          <div>Already have Money Pox Credentials?</div>
+          <Link to="/Login">Log In Here</Link>
+        </center></div>
+      </fieldset>
     </>
 
-)
+  )
 }

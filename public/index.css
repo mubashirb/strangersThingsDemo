@@ -6,9 +6,9 @@
     -webkit-box-sizing: border-box;
     appearance: none;
     -webkit-appearance: none;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -17,13 +17,108 @@
     background-color: white;
     overflow-x: hidden;
     font-size: 16px;
-  }
-  
-  @media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 768px) {
     body {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
+}
+
+/*end of whole page*/
+
+/*css for nav bar*/
+
+/*end of nav bar*/
+
+/*css for home page*/
+
+h1 {
+    text-align: center;
+}
+
+.home-row {
+    width: 90%;
+    display: flex;
+    border-top: 2px solid black;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards {
+    width: 25em;
+    border-radius: 10px;
+    margin: 2em;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: rgb(125, 250, 208, 0.25);
+    z-index: 1;
+}
+
+.cards:hover {
+    background-color: rgb(125, 250, 208, 0.5);
+}
+
+.cards:active {
+    background-color: rgb(125, 250, 208, 0.75);
+}
+
+.centered {
+    text-align: center;
+}
+
+.arrow {
+    display: flex;
+    align-self: center;
+    font-size: large;
+    margin: 1em;
+}
+
+.images {
+    width: 25em;
+    margin: 2em;
+}
+
+/*end of home page*/
+
+/* START OF LOGIN */
+/*css for nav bar*/
+/*end of nav bar*/
+.formLogIn {
+    background-color: lightblue;
+}
+
+.formLogIn * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: 'lato', sans-serif;
+    color: darkblue;
+}
+
+/* END OF LOGIN*/
+
+/*START OF REGISTER*/
+.formRegister {
+    background-color: lightblue;
+}
+
+.formRegister * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: 'lato', sans-serif;
+    color: darkblue;
+}
+
+/*END OF REGISTER*/
+
   /*end of whole page*/
 
   /*css for nav bar*/
@@ -81,6 +176,7 @@
       width: 25em;
       margin: 2em;
   }
+<<<<<<< HEAD
   /*end of home page*/
 
   /*footer*/
@@ -88,3 +184,13 @@
       text-align: center;
   }
   /*end of footer*/
+=======
+
+  .nav{
+      display: flex;
+      justify-content: space-around;
+      border: 2px solid black;
+  }
+
+  /*end of home page*/
+>>>>>>> 99f56e18ef624d043632e1328c4db98524c59660
