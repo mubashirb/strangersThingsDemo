@@ -176,6 +176,15 @@ h1 {
       width: 25em;
       margin: 2em;
   }
+<<<<<<< HEAD
+  /*end of home page*/
+
+  /*footer*/
+  .footer {
+      text-align: center;
+  }
+  /*end of footer*/
+=======
 
   .nav{
       display: flex;
@@ -184,3 +193,4 @@ h1 {
   }
 
   /*end of home page*/
+>>>>>>> 99f56e18ef624d043632e1328c4db98524c59660
