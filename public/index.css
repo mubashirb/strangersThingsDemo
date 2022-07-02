@@ -118,3 +118,69 @@ h1 {
 }
 
 /*END OF REGISTER*/
+
+  /*end of whole page*/
+
+  /*css for nav bar*/
+
+  /*end of nav bar*/
+
+  /*css for home page*/
+
+  h1 {
+      text-align: center;
+  }
+
+  .home-row {
+      width: 90%;
+      display: flex;
+      border-top: 2px solid black;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+
+  .cards {
+      width: 25em;
+      border-radius: 10px;
+      margin: 2em;
+      padding: 1em;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      background-color: rgb(125, 250, 208, 0.25);
+      z-index: 1;
+  }
+
+  .cards:hover {
+      background-color: rgb(125, 250, 208, 0.5);
+  }
+
+  .cards:active {
+      background-color: rgb(125, 250, 208, 0.75);
+  }
+
+  .centered {
+      text-align: center;
+  }
+
+  .arrow {
+      display:flex;
+      align-self: center;
+      font-size: large;
+      margin: 1em;
+  }
+
+  .images {
+      width: 25em;
+      margin: 2em;
+  }
+
+  .nav{
+      display: flex;
+      justify-content: space-around;
+      border: 2px solid black;
+  }
+
+  /*end of home page*/
