@@ -9,7 +9,7 @@ import{
     Footer,
     Login,
     Navbar,
-
+    Activities,
     MyRoutines,
     Register,
     Routines
