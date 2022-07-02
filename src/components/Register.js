@@ -43,7 +43,10 @@ export default function Register({ setToken, setLoggedIn }) {
   return (
 
     <>
+    <br></br>
+    <br></br>
       <fieldset>
+        
         <legend>Register</legend>
         <div className="formLogIn"><center>
           <div>Register for Monkey Pox</div>
@@ -56,11 +59,11 @@ export default function Register({ setToken, setLoggedIn }) {
               registerUser()
             }
           }}>
-            <label>Desired Username</label>
-            <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+            {/* <label>Desired Username</label> */}
+            <input type="text" placeholder="Desired Username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
             <br></br>
-            <label>Desired Password</label>
-            <input type="text" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+            {/* <label>Desired Password</label> */}
+            <input type="text" placeholder="Desired Password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
             <br></br>
             <button type="submit">REGISTER</button>
           </form>

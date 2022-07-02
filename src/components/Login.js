@@ -41,6 +41,8 @@ export default function Login({ setToken, setLoggedIn }) {
   return (
 
     <>
+    <br></br>
+    <br></br>
     <fieldset>
       <legend>Log-In</legend>
     <div className="formLogIn"><center>
@@ -50,11 +52,11 @@ export default function Login({ setToken, setLoggedIn }) {
         event.preventDefault()
         LoginUser()
       }}>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+        {/* <label>Username:</label> */}
+        <input type="text" placeholder= "username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
         <br></br>
-        <label>Password:</label>
-        <input type="text" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+        {/* <label>Password:</label> */}
+        <input type="text" placeholder= "password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
         <br></br>
         <button type="submit">Submit</button>
       </form>
