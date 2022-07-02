@@ -65,7 +65,7 @@ export default function Register({ setToken, setLoggedIn }) {
             <button type="submit">REGISTER</button>
           </form>
           <br></br>
-          <div>Already have Money Pox Credentials?</div>
+          <div>Already have Monkey Pox Credentials?</div>
           <Link to="/Login">Log In Here</Link>
         </center></div>
       </fieldset>
