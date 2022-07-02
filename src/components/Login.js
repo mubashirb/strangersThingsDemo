@@ -41,18 +41,28 @@ export default function Login({ setToken, setLoggedIn }) {
   return (
 
     <>
-
+    <br></br>
+    <br></br>
+    <fieldset>
+      <legend>Log-In</legend>
+    <div className="formLogIn"><center>
+      <div>Please enter credentials for Monkey Pox</div>
+      <br></br>
       <form onSubmit={(event) => {
         event.preventDefault()
         LoginUser()
       }}>
-        <label>Enter Username:</label>
-        <input type="text" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
-        <label>Enter Password:</label>
-        <input type="text" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+        {/* <label>Username:</label> */}
+        <input type="text" placeholder= "username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+        <br></br>
+        {/* <label>Password:</label> */}
+        <input type="text" placeholder= "password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+        <br></br>
         <button type="submit">Submit</button>
       </form>
       <Link to="/Register">Create Account</Link>
+      </center></div>
+    </fieldset>
     </>
 
   )

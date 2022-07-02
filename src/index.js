@@ -48,18 +48,19 @@ function App(){
         <Navbar loggedIn={loggedIn} Logout={Logout}/>
         <Routes>
             
-            <Route path = "/" element={<Routines />}></Route>
+            <Route path = "/" element={<Home />}></Route>
             <Route path = "Routines" element={<Routines loggedIn={loggedIn} token={token} userId={userId} routines={routines} setRoutines={setRoutines}/>}></Route>
             <Route path = "Login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} setUserId={setUserId}/>}></Route>
             <Route path = "Home" element={<Home token={token} />}></Route>
             <Route path = "Register" element={<Register setToken={setToken} setLoggedIn={setLoggedIn} setUserId={setUserId}/>}></Route>
             <Route path = "MyRoutines" element={<MyRoutines loggedIn={loggedIn} token={token} userId={userId} />}></Route>
-            
+            <Route path = "Activities" element={<Activities loggedIn = {loggedIn} token={token}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
 
         </Routes>
         
-
+        <br></br>
+        <br></br>
         <Footer/>
         </>
     )

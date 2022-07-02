@@ -6,9 +6,20 @@
     -webkit-box-sizing: border-box;
     appearance: none;
     -webkit-appearance: none;
-  }
-  
-  body {
+    
+}
+
+a:link{
+    color:black;
+    text-decoration: none;
+}
+
+a:visited {
+    color:black;
+}
+
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -17,13 +28,128 @@
     background-color: white;
     overflow-x: hidden;
     font-size: 16px;
-  }
-  
-  @media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 768px) {
     body {
-      font-size: 14px;
+        font-size: 14px;
     }
-  }
+}
+
+/*end of whole page*/
+
+
+/*css for home page*/
+
+h1 {
+    text-align: center;
+}
+
+.home-row {
+    width: 100%;
+    display: flex;
+    border-top: 2px solid black;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards {
+    width: 25em;
+    border-radius: 10px;
+    margin: 2em;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: rgb(125, 250, 208, 0.25);
+    z-index: 1;
+    box-shadow: .3em 0 .3em black;
+}
+
+.cards:hover {
+    background-color: rgb(125, 250, 208, 0.5);
+}
+
+/* .cards:active {
+    background-color: rgb(125, 250, 208, 0.75);
+} */
+
+.centered {
+    text-align: center;
+}
+
+.arrow {
+    display: flex;
+    align-self: center;
+    font-size: large;
+    margin: 1em;
+}
+
+.images {
+    width: 25em;
+    margin: 2em;
+}
+
+/*end of home page*/
+
+/* START OF LOGIN */
+/*css for nav bar*/
+
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 1em 0 1em black;
+    background-color: rgba(73, 75, 74, 0.25);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    
+}
+  
+.link {
+    border-bottom: black 2px solid;
+    padding: 20px;
+}
+.link:hover {
+    box-shadow: .1em 0 .1em black;
+}
+
+
+/*end of nav bar*/
+
+.formLogIn {
+    background-color: lightblue;
+}
+
+.formLogIn * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: 'lato', sans-serif;
+    color: darkblue;
+}
+
+/* END OF LOGIN*/
+
+/*START OF REGISTER*/
+.formRegister {
+    background-color: lightblue;
+}
+
+.formRegister * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: 'lato', sans-serif;
+    color: darkblue;
+}
+
+/*END OF REGISTER*/
+
   /*end of whole page*/
 
   /*css for nav bar*/
@@ -37,7 +163,7 @@
   }
 
   .home-row {
-      width: 90%;
+      width: 100%;
       display: flex;
       border-top: 2px solid black;
       flex-direction: row;
@@ -54,17 +180,14 @@
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      background-color: rgb(125, 250, 208, 0.25);
+      background-color: rgba(73, 75, 74, 0.25);
       z-index: 1;
   }
 
   .cards:hover {
-      background-color: rgb(125, 250, 208, 0.5);
+      background-color: rgb(73, 75, 74, 0.5);
   }
 
-  .cards:active {
-      background-color: rgb(125, 250, 208, 0.75);
-  }
 
   .centered {
       text-align: center;
@@ -81,4 +204,16 @@
       width: 25em;
       margin: 2em;
   }
+  /*end of home page*/
+
+  /*footer*/
+  .footer {
+      text-align: center;
+      padding-bottom: 15px;
+  }
+  /*end of footer*/
+
+  
+
+
   /*end of home page*/
