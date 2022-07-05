@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 export default function Activities({ loggedIn, token }) {
 
     const [activities, setActivities ] = useState([]);
+    const [activityName, setActivityName] = useState('');
+    const [activityDescription, setActivityDescription] = useState('')
 
     useEffect(() => {
 
         async function getActivities() {
             try {
                 const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
-                method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
                 })
 
                 let data = await response.json()
 
-                setActivities(data.activities)
+                setActivities(data.data.description)
 
             } catch (err) {
                 console.log(err)
@@ -26,34 +30,37 @@ export default function Activities({ loggedIn, token }) {
 
 
     // //CREATE ACTIVITY 
-    // async function createActivity(activityid) {
-    //     try {
-    //         const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/activities/${activityid}`, {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`
-    //             },
-    //             body: JSON.stringify({
-    //                 //message?
-    //                 message: {
-    //                     content: description
-    //                 }
-    //             })
-    //         })
-    //         let data = await response.json()
-    //         console.log(data)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-
-
+    async function createActivity(activityid, token) {
+        try {
+            const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/activities/${activityid}`, {
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Authorization': `Bearer ${token}`
+            //     },
+            //     body: JSON.stringify({
+            //         //message?
+            //         message: {
+            //             content: description
+            //         }
+            //     })
+            // })
+            method: "POST",
+            body: JSON.stringify({
+              name: activityName,
+              description: activityDescription
+            })
+          })
+            let data = await response.json()
+            console.log(data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
     {
         return (
             <>
-                {   activities ?
+                {   loggedIn ?
                     activities.map((activity) => {
                         return (
                             <div key={activity._id}>
