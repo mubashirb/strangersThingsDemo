@@ -34,7 +34,7 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                         
                                         {
                                          routine.activities ? routine.activities.map(activity => 
-                                            <div className="activity" key={activity.id}>
+                                            <div className="routineActivity" key={activity.id}>
                                               <h3>{activity.name}</h3>
                                               <p><span className='label'>Description: </span>{activity.description}</p>
                                               <p><span className='label'>Duration: </span>{activity.duration}</p>

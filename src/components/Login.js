@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export default function Login({ setToken, setLoggedIn }) {
+export default function Login({ setToken, setLoggedIn, setUserId }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate();
@@ -28,10 +28,10 @@ export default function Login({ setToken, setLoggedIn }) {
         })
       })
       let result = await response.json()
-      //console.log(result)
-      console.log(result)
+
       setToken(result.token)
       setLoggedIn(true)
+      setUserId(result.user.id)
       localStorage.setItem("token", result.token)
       navigate("/Home")
     } catch (err) {
@@ -53,10 +53,10 @@ export default function Login({ setToken, setLoggedIn }) {
         LoginUser()
       }}>
         {/* <label>Username:</label> */}
-        <input type="text" placeholder= "username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+        <input type="text" placeholder= "username" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
         <br></br>
         {/* <label>Password:</label> */}
-        <input type="text" placeholder= "password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+        <input type="text" placeholder= "password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
         <br></br>
         <button type="submit">Submit</button>
       </form>
