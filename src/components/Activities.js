@@ -42,7 +42,7 @@ export default function Activities({loggedIn, token}){
     )
 }
 
-
+//MIGHT BE ABLE TO USE SOME FROM THIS LATER 
 
 // export default function Activities({ loggedIn, token }) {
 
