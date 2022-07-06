@@ -30,10 +30,14 @@ export default function Login({ setToken, setLoggedIn }) {
       let result = await response.json()
       //console.log(result)
       console.log(result)
-      setToken(result.token)
-      setLoggedIn(true)
-      localStorage.setItem("token", result.token)
-      navigate("/Home")
+      if (result.user) {
+        setToken(result.token)
+        setLoggedIn(true)
+        localStorage.setItem("token", result.token)
+        navigate("/Home")
+      } else {
+        alert("Login Failed...Remember your credentials!")
+      }
     } catch (err) {
       console.log("Ahh couldn't log in!! " + err)
     }
