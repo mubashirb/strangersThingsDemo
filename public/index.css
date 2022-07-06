@@ -1,41 +1,240 @@
-*{
-    background-color:rgb(195, 195, 198) ;
-    align-content: center;
-    
+/* css for whole page*/
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
     
 }
-.link{
-    background-color: aliceblue;
+
+a:link{
+    color:black;
+    text-decoration: none;
 }
+
+a:visited {
+    color:black;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/*end of whole page*/
+
+
+/*css for home page*/
+
+h1 {
+    text-align: center;
+}
+
+.home-row {
+    width: 100%;
+    display: flex;
+    border-top: 2px solid black;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards {
+    width: 25em;
+    border-radius: 10px;
+    margin: 2em;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: rgb(125, 250, 208, 0.25);
+    z-index: 1;
+    box-shadow: .3em 0 .3em black;
+}
+
+.cards:hover {
+    background-color: rgb(125, 250, 208, 0.5);
+}
+
+
+
+.centered {
+    text-align: center;
+}
+
+.arrow {
+    display: flex;
+    align-self: center;
+    font-size: large;
+    margin: 1em;
+}
+
+.images {
+    width: 25em;
+    margin: 2em;
+}
+
+/*end of home page*/
+
+
+/*css for nav bar*/
+
+
 .nav{
     display: flex;
     justify-content: space-around;
-    background-color: aliceblue;
-    height:auto;
+    box-shadow: 1em 0 1em black;
+    background-color: #00b2fe;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    
 }
-#searchBar{
-    display:flex;
-    justify-content:space-evenly;
-    width: 100%;
+  
+.link {
+    border-bottom: black 2px solid;
+    padding: 20px;
+}
+.link:hover {
+    box-shadow: .1em 0 .1em black;
+}
 
+
+/*end of nav bar*/
+
+/*beginning of login*/
+
+.formLogIn {
+    background-color: azure;
 }
-#deleted{
-    background-color: pink;
+
+.formLogIn * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue;
 }
-#postForm{
-    display:flex;
-    justify-content:space-evenly;
+
+/* END OF LOGIN*/
+
+/*START OF REGISTER*/
+.formRegister {
+    background-color: azure;
 }
-#footer{
-    display:flex;
-    align-items:flex-end;
+
+.formRegister * {
+    display: flex-wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue;
 }
-#active{
-    background-color: aquamarine;
+
+/*END OF REGISTER*/
+
+/*error page*/
+
+iframe 
+{
+ display: block; 
+ width: 100%; 
+ border: none; 
+ overflow-y: auto; 
+ overflow-x: hidden;
 }
-#receivedMsg{
-    background-color: rgb(127, 238, 255);
+
+/*error page end*/
+
+/*activities page*/
+
+.create-activity {
+    background-color: azure;
 }
-#sentMsg{
-    background-color: rgb(127, 163, 255);
+.activities {
+    background-color: azure;
+    border-radius: 10px;
 }
+
+/*end of activities page*/ 
+
+/*routines page*/
+
+.routines {
+    background-color: azure;
+    border-radius: 10px;
+}
+
+/*end of routines page*/
+
+/*css for home page*/
+
+  h1 {
+      text-align: center;
+  }
+
+  .home-row {
+      width: 100%;
+      display: flex;
+      border-top: 2px solid black;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+
+  .cards {
+      width: 25em;
+      border-radius: 10px;
+      margin: 2em;
+      padding: 1em;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      background-color: rgba(73, 75, 74, 0.25);
+      z-index: 1;
+  }
+
+  .cards:hover {
+      background-color: rgb(73, 75, 74, 0.5);
+  }
+
+
+  .centered {
+      text-align: center;
+  }
+
+  .images {
+      width: 25em;
+      margin: 2em;
+  }
+  /*end of home page*/
+
+  /*footer*/
+  .footer {
+      text-align: center;
+      padding-bottom: 15px;
+  }
+  /*end of footer*/
+
+  
+
+
+  /*end of home page*/

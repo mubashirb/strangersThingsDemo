@@ -1,42 +1,44 @@
-import react, {useState , useEffect} from "react";
+import React, {useState , useEffect} from "react";
 import reactdomclient  from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
 
 import{
-    Posts,
+    Home,
     Error,
     Footer,
     Login,
     Navbar,
-    Profile,
-    SinglePost,
-    Register
-
-
+    Activities,
+    MyRoutines,
+    Register,
+    Routines
 }from "./components"
 
 function App(){
-    const [posts, setPosts] = useState([])
-    const [loggedIn, setLoggedIn]=useState(false)
-    const [token, setToken] = useState("")
-    const [selectedPost, setSelectedPost] = useState({})
-    const navigate = useNavigate()
+   
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [token, setToken] = useState("");
+    const [userId, setUserId] = useState(0);
+    const [routines, setRoutines] = useState([]);
+    
+    const navigate = useNavigate();
     
 
     useEffect(()=>{
-        let savedToken = localStorage.getItem("token")
+        let savedToken = localStorage.getItem("token");
         if(savedToken){
-            setLoggedIn(true)
-            setToken(savedToken)
+            setLoggedIn(true);
+            setToken(savedToken);
         }
     },[])
 
     function Logout(){
-        localStorage.removeItem("token")
-        setLoggedIn(false)
-        setToken("")
-        navigate("/Posts")
+        localStorage.removeItem("token");
+        setLoggedIn(false);
+        setToken("");
+        alert("You've successfully logged out and you're being redirected to the homepage!")
+        navigate("/");
 
     }
 
@@ -46,17 +48,20 @@ function App(){
         <>
         <Navbar loggedIn={loggedIn} Logout={Logout}/>
         <Routes>
-            <Route path = "Posts" element={<Posts loggedIn = {loggedIn} token={token} posts={posts} setPosts = {setPosts}/>}></Route>
-            <Route path = "Login" element={<Login setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
-            <Route path = "Profile" element={<Profile setSelectedPost = {setSelectedPost} selectedPost = {selectedPost} token = {token} />}></Route>
-            <Route path = "Register" element={<Register setToken = {setToken} setLoggedIn = {setLoggedIn}/>}></Route>
+            
+            <Route path = "/" element={<Home />}></Route>
+            <Route path = "Routines" element={<Routines loggedIn={loggedIn} token={token} userId={userId} routines={routines} setRoutines={setRoutines}/>}></Route>
+            <Route path = "Login" element={<Login setToken={setToken} setLoggedIn={setLoggedIn} setUserId={setUserId}/>}></Route>
+            <Route path = "Home" element={<Home token={token} />}></Route>
+            <Route path = "Register" element={<Register setToken={setToken} setLoggedIn={setLoggedIn} setUserId={setUserId}/>}></Route>
+            <Route path = "MyRoutines" element={<MyRoutines loggedIn={loggedIn} token={token} userId={userId} />}></Route>
+            <Route path = "Activities" element={<Activities loggedIn = {loggedIn} token={token}/>}></Route>
             <Route path = "*" element={<Error/>}></Route>
-            <Route path = "/" element={<Posts posts={posts} setPosts = {setPosts}/>}></Route>
-            <Route path = "SinglePost" element={<SinglePost token = {token} setPosts = {setPosts}/>}></Route>
 
         </Routes>
         
-
+        <br></br>
+        <br></br>
         <Footer/>
         </>
     )

@@ -2,22 +2,29 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function Navbar({loggedIn, Logout}){
 
-    
+    //MY ROUTINES, NOT LOGGED IN ROUTINES,  ACTIVITIES, HOME,
     return (
     <>
     <div className = "nav">
+       
         {
-        !loggedIn?<Link className="link" to="Login"> LOGIN </Link>: <button onClick={Logout}> Logout </button>
+        !loggedIn || loggedIn?<Link className="link" to="Home"> Home</Link>:null
         }
-        <Link  className="link" to="Posts">POSTS</Link>
+        
         {
-        loggedIn?<Link className="link" to="Profile">PROFILE</Link>:null
-        }
-        {
-        !loggedIn?<Link className="link" to="Register"> REGISTER</Link>:null
+        loggedIn?<Link className="link" to="MyRoutines"> My Routines</Link>:null
         }
         {
-        loggedIn?<Link className="link" to="SinglePost"> POST AN ITEM</Link>:null
+        !loggedIn || loggedIn?<Link className="link" to="Routines"> Routines</Link>:null
+        }
+        {
+        !loggedIn || loggedIn?<Link className="link" to="Activities"> Activities</Link>:null
+        }
+        {
+        !loggedIn?<Link className="link" to="Register"> Sign Up</Link>:null
+        }
+        {
+        !loggedIn?<Link className="link" to="Login"> Login </Link>: <span className="link" onClick={Logout}> Logout </span>
         }
 </div>
         </>
