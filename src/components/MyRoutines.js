@@ -1,13 +1,9 @@
-import react, {useState , useEffect} from "react";
+import React, {useState , useEffect} from "react";
 import reactdomclient  from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
 export default function MyRouintes({token, setPosts}){
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [Price, setPrice] = useState("");
-    const [Location, setLocation] = useState("");
-    const [willDeliver, setWillDeliver] = useState(false)
+
     const navigate = useNavigate()
 
     async function createMyRoutines(){
