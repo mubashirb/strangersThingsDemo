@@ -49,25 +49,39 @@ export default function Activities({ loggedIn, token }) {
 
     return (
         <>
+        <br></br>
             {
-                loggedIn ? <form onSubmit={(event) => {
+                loggedIn ? <fieldset className='create-activity' onSubmit={(event) => {
                     event.preventDefault()
                     createActivity()
                 }}>
-                    <h3>Create an Activity</h3>
+                    
+                   <legend><b><i>Create your own activity!</i></b></legend><br></br>
                     <input type="text" placeholder="Activity Name" onChange={(event) => { setActivityName(event.target.value) }} ></input>
                     <input type="text" placeholder="Description" onChange={(event) => { setActivityDescription(event.target.value) }} ></input>
-                    <button type="submit"> CREATE</button>
-                </form> : null
+                    <button className='create-button' type="submit"> CREATE</button>
+                    <br></br>
+                 
+                </fieldset>: null
             }
             <h1> Activities</h1>
             {
+            
                 activities.map(activity => {
-                    return <li key={activity.id}>
-                        <div>{activity.id}</div>
-                        <div>{activity.name}</div>
-                        <div>{activity.description}</div>
-                    </li>
+                    return(
+                        <div key={activity.id}>
+                            <fieldset className='activities'>
+                                
+                                <legend><b>{activity.name}</b></legend>
+                                
+                                <div>Activity ID #{activity.id}</div>
+                                    
+                                <div><i>{activity.description}</i></div>
+                                
+                            </fieldset>
+                            
+                        </div>
+                    )
                 })
             }
 

@@ -37,7 +37,8 @@ function App(){
         localStorage.removeItem("token");
         setLoggedIn(false);
         setToken("");
-        navigate("/login");
+        alert("You've successfully logged out and you're being redirected to the homepage!")
+        navigate("/");
 
     }
 

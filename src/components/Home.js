@@ -16,7 +16,7 @@ export default function Home() {
             <div className="home-row">
                 {/* Links to the activities page */}
                 <Link to='/Activities' className="cards">
-                <h3 className="arrows">{'<'}</h3>
+                
                 <p>Think you're up to the challange? Check out some of the activities that you can add!</p>
                 </Link>
                 <img className="images" src={lifter} alt="Lifter"></img>
@@ -27,7 +27,7 @@ export default function Home() {
                 {/* Links to the routines page */}
                 <Link to='/Routines' className='cards'> 
                 <p>Come check out some routines and see what works for you!</p>
-                <h3 className='arrow'>{'>'}</h3>
+                
                 </Link> 
             </div>
         </div>

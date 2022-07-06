@@ -22,22 +22,28 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
         },[token])
 
         return (
-            <div id='allRoutines'>
+            <>
                 {   routines ? routines.map(routine => {
                                 return (
-                                    <div className="routine" key={routine.id}>
-    
-                                        <h3>{routine.name}</h3>
-                                        <p><span className='label'>Goal: </span>{routine.goal}</p>
-                                        <p><span className='label'>Creator: </span>{routine.creatorName}</p>
+                                    <div key={routine.id}>
+                                        <br></br>
+                                        <b>Created by : <i>{routine.creatorName}</i></b>
+                                        <br></br>
+                                        <br></br>
+                                        <fieldset className="routines">
+                                        <legend><b>{routine.name}</b></legend>
+                                        <div>Goal: {routine.goal}</div>
+                                        
                                         <p><span className='label'>Activities: </span></p>
                                         
                                         {
-                                         routine.activities ? routine.activities.map(activity => 
+                                         routine.activities ? routine.activities.map((activity) => 
                                             <div className="routineActivity" key={activity.id}>
-                                              <h3>{activity.name}</h3>
-                                              <p><span className='label'>Description: </span>{activity.description}</p>
-                                              <p><span className='label'>Duration: </span>{activity.duration}</p>
+                                              {activity.name}
+                                              <div>Description: {activity.description}</div>
+                                              <div>Duration: {activity.duration}</div>
+                                              {/* {description ? <> <span>Description: {activity.description} </span> </>:null } */}
+                                              {/* {duration ? <> <span>Duration: {activity.duration} </span> </>: null } */}
                                               <p><span className='label'>Count: </span>{activity.count}</p>
                                             </div>
                                           ) : null
@@ -48,11 +54,12 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                         {
                                             routine.creatorId===userId ? <Link to="/Routine" className="routineBtn" onClick={() => {deleteMyRoutine(token, routine.id)}}>Delete</Link> : null
                                         } */}
+                                        </fieldset>
                                     </div>
                                 )
                             }) : null
                 }
-            </div>
+            </>
         )
     
 }

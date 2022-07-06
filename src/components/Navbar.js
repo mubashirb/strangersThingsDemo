@@ -6,15 +6,11 @@ export default function Navbar({loggedIn, Logout}){
     return (
     <>
     <div className = "nav">
-        {
-        !loggedIn?<Link className="link" to="Login"> Login </Link>: <span className="link" onClick={Logout}> Logout </span>
-        }
+       
         {
         !loggedIn || loggedIn?<Link className="link" to="Home"> Home</Link>:null
         }
-        {
-        !loggedIn?<Link className="link" to="Register"> Register</Link>:null
-        }
+        
         {
         loggedIn?<Link className="link" to="MyRoutines"> My Routines</Link>:null
         }
@@ -23,6 +19,12 @@ export default function Navbar({loggedIn, Logout}){
         }
         {
         !loggedIn || loggedIn?<Link className="link" to="Activities"> Activities</Link>:null
+        }
+        {
+        !loggedIn?<Link className="link" to="Register"> Sign Up</Link>:null
+        }
+        {
+        !loggedIn?<Link className="link" to="Login"> Login </Link>: <span className="link" onClick={Logout}> Logout </span>
         }
 </div>
         </>

@@ -72,9 +72,7 @@ h1 {
     background-color: rgb(125, 250, 208, 0.5);
 }
 
-/* .cards:active {
-    background-color: rgb(125, 250, 208, 0.75);
-} */
+
 
 .centered {
     text-align: center;
@@ -94,7 +92,7 @@ h1 {
 
 /*end of home page*/
 
-/* START OF LOGIN */
+
 /*css for nav bar*/
 
 
@@ -102,7 +100,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     box-shadow: 1em 0 1em black;
-    background-color: rgba(73, 75, 74, 0.25);
+    background-color: #00b2fe;
     padding-bottom: 15px;
     padding-top: 15px;
     
@@ -119,8 +117,10 @@ h1 {
 
 /*end of nav bar*/
 
+/*beginning of login*/
+
 .formLogIn {
-    background-color: lightblue;
+    background-color: azure;
 }
 
 .formLogIn * {
@@ -128,7 +128,7 @@ h1 {
     justify-content: center;
     align-items: center;
     min-height: 100%;
-    font-family: 'lato', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: darkblue;
 }
 
@@ -136,7 +136,7 @@ h1 {
 
 /*START OF REGISTER*/
 .formRegister {
-    background-color: lightblue;
+    background-color: azure;
 }
 
 .formRegister * {
@@ -144,19 +144,47 @@ h1 {
     justify-content: center;
     align-items: center;
     min-height: 100%;
-    font-family: 'lato', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: darkblue;
 }
 
 /*END OF REGISTER*/
 
-  /*end of whole page*/
+/*error page*/
 
-  /*css for nav bar*/
+iframe 
+{
+ display: block; 
+ width: 100%; 
+ border: none; 
+ overflow-y: auto; 
+ overflow-x: hidden;
+}
 
-  /*end of nav bar*/
+/*error page end*/
 
-  /*css for home page*/
+/*activities page*/
+
+.create-activity {
+    background-color: azure;
+}
+.activities {
+    background-color: azure;
+    border-radius: 10px;
+}
+
+/*end of activities page*/ 
+
+/*routines page*/
+
+.routines {
+    background-color: azure;
+    border-radius: 10px;
+}
+
+/*end of routines page*/
+
+/*css for home page*/
 
   h1 {
       text-align: center;
@@ -191,13 +219,6 @@ h1 {
 
   .centered {
       text-align: center;
-  }
-
-  .arrow {
-      display:flex;
-      align-self: center;
-      font-size: large;
-      margin: 1em;
   }
 
   .images {
