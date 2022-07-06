@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
-export default function Register({ setToken, setLoggedIn }) {
+export default function Register({ setToken, setLoggedIn, setUserId }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
@@ -27,6 +27,7 @@ export default function Register({ setToken, setLoggedIn }) {
       if (result.user) {
         setToken(result.token)
         setLoggedIn(true)
+        setUserId(result.user.id)
         localStorage.setItem("token", result.token)
       }
       else {
@@ -60,10 +61,10 @@ export default function Register({ setToken, setLoggedIn }) {
             }
           }}>
             {/* <label>Desired Username</label> */}
-            <input type="text" placeholder="Desired Username" value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
+            <input type="text" placeholder="Desired Username" required value={username} onChange={(event) => { setUsername(event.target.value) }}></input>
             <br></br>
             {/* <label>Desired Password</label> */}
-            <input type="text" placeholder="Desired Password" value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
+            <input type="text" placeholder="Desired Password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
             <br></br>
             <button type="submit">REGISTER</button>
           </form>
