@@ -124,13 +124,16 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                         routine.creatorId === userId ? <button className="routineBtn" onClick={() => { deleteRoutine(routine.id) }}>Delete</button> : null
                                         }
                                         <p><span className='label'>--Activities--</span></p>
+
                                         
                                         {
-                                         routine.activities ? routine.activities.map(activity => 
+                                         routine.activities ? routine.activities.map((activity) => 
                                             <div className="routineActivity" key={activity.id}>
-                                              <h3>{activity.name}</h3>
-                                              <p><span className='label'>Description: </span>{activity.description}</p>
-                                              <p><span className='label'>Duration: </span>{activity.duration}</p>
+                                              {activity.name}
+                                              <div>Description: {activity.description}</div>
+                                              <div>Duration: {activity.duration}</div>
+                                              {/* {description ? <> <span>Description: {activity.description} </span> </>:null } */}
+                                              {/* {duration ? <> <span>Duration: {activity.duration} </span> </>: null } */}
                                               <p><span className='label'>Count: </span>{activity.count}</p>
                                             </div>
                                           ) : null
@@ -162,12 +165,3 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                 }) : null
                 }
             </div>
-
-
-
-
-
-            
-        </>
-    )
-}
