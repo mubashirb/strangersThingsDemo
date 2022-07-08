@@ -69,7 +69,7 @@ export default function Activities({ loggedIn, token }) {
             
                 activities.map(activity => {
                     return(
-                        <div key={activity.id}>
+                        <div className='activity-row' key={activity.id}>
                             <fieldset className='activities'>
                                 
                                 <legend><b>{activity.name}</b></legend>
@@ -79,6 +79,7 @@ export default function Activities({ loggedIn, token }) {
                                 <div><i>{activity.description}</i></div>
                                 
                             </fieldset>
+                            <br></br>
                             
                         </div>
                     )

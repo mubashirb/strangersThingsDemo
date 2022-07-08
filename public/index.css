@@ -1,4 +1,5 @@
 /* css for whole page*/
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 * {
     box-sizing: border-box;
@@ -10,24 +11,28 @@
 }
 
 a:link{
-    color:black;
+    color:hotpink;
     text-decoration: none;
 }
 
 a:visited {
-    color:black;
+    color:hotpink;
 }
 
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: audiowide, sans-serif;
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: #faeb2c;
     overflow-x: hidden;
     font-size: 16px;
+}
+fieldset {
+    border-radius: 30px;
+    border: skyblue solid 5px
 }
 
 @media only screen and (max-width: 768px) {
@@ -48,10 +53,11 @@ h1 {
 .home-row {
     width: 100%;
     display: flex;
-    border-top: 2px solid black;
+    border-top: 2px solid hotpink;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom: 2px solid hotpink;
 }
 
 .cards {
@@ -63,7 +69,7 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: rgb(125, 250, 208, 0.25);
+    background-color: #e900ff;
     z-index: 1;
     box-shadow: .3em 0 .3em black;
 }
@@ -78,12 +84,6 @@ h1 {
     text-align: center;
 }
 
-.arrow {
-    display: flex;
-    align-self: center;
-    font-size: large;
-    margin: 1em;
-}
 
 .images {
     width: 25em;
@@ -99,18 +99,22 @@ h1 {
 .nav{
     display: flex;
     justify-content: space-around;
-    box-shadow: 1em 0 1em black;
-    background-color: #00b2fe;
+    box-shadow: 1em 0 1em black; 
+    background-color: White;
     padding-bottom: 15px;
     padding-top: 15px;
     
 }
   
-.link {
-    border-bottom: black 2px solid;
+
+
+.link2 {
+    border:0cm 2px solid;
     padding: 20px;
+    text-align: center;
+    padding-top: 30px;
 }
-.link:hover {
+.link2:hover {
     box-shadow: .1em 0 .1em black;
 }
 
@@ -166,75 +170,44 @@ iframe
 /*activities page*/
 
 .create-activity {
-    background-color: azure;
+    background-color: #e900ff;
 }
 .activities {
-    background-color: azure;
+    background-color: #e900ff;
     border-radius: 10px;
+    /* display: flex;
+    flex-wrap: nowrap; */
+}
+
+.activity-row {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 /*end of activities page*/ 
 
+
 /*routines page*/
 
 .routines {
-    background-color: azure;
+    background-color: #e900ff;
     border-radius: 10px;
 }
 
 /*end of routines page*/
 
-/*css for home page*/
-
-  h1 {
-      text-align: center;
-  }
-
-  .home-row {
-      width: 100%;
-      display: flex;
-      border-top: 2px solid black;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-  }
-
-  .cards {
-      width: 25em;
-      border-radius: 10px;
-      margin: 2em;
-      padding: 1em;
-      text-align: center;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      background-color: rgba(73, 75, 74, 0.25);
-      z-index: 1;
-  }
-
-  .cards:hover {
-      background-color: rgb(73, 75, 74, 0.5);
-  }
 
 
-  .centered {
-      text-align: center;
-  }
-
-  .images {
-      width: 25em;
-      margin: 2em;
-  }
-  /*end of home page*/
-
-  /*footer*/
+  /* footer */
   .footer {
       text-align: center;
       padding-bottom: 15px;
   }
-  /*end of footer*/
+  /* end of footer */
 
   
 
 
-  /*end of home page*/
+  
