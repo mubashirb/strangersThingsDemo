@@ -2,21 +2,16 @@ import React, { useEffect, useState } from 'react';
 import reactdomclient from "react-dom/client";
 import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
 
-export default function Activities({ loggedIn, token }) {
-    const [activities, setActivities] = useState([]);
+export default function Activities({loggedIn, token, activities, setActivities}){
+
     const [activityName, setActivityName] = useState('');
     const [activityDescription, setActivityDescription] = useState('')
     useEffect(() => {
 
         async function getActivities() {
             try {
-                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
+                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities')
                 let data = await response.json()
-
 
                 setActivities(data)
             }
