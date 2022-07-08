@@ -34,6 +34,8 @@ export default function Login({ setToken, setLoggedIn, setUserId }) {
         setToken(result.token)
         setLoggedIn(true)
         localStorage.setItem("token", result.token)
+        localStorage.setItem("userId", result.user.id)
+        setUserId(result.user.id)
         navigate("/Home")
       } else {
         alert("Login Failed...Remember your credentials!")
@@ -71,3 +73,4 @@ export default function Login({ setToken, setLoggedIn, setUserId }) {
 
   )
 }
+
