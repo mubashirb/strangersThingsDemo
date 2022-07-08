@@ -1,54 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import reactdomclient from "react-dom/client";
-import { BrowserRouter, useNavigate, Routes, Route, Link } from "react-router-dom";
+import { fetchAllActivities } from '../api';
 
 export default function Activities({loggedIn, token, activities, setActivities}){
 
     const [activityName, setActivityName] = useState('');
-    const [activityDescription, setActivityDescription] = useState('')
+    const [activityDescription, setActivityDescription] = useState('');
     useEffect(() => {
 
         async function getActivities() {
             try {
-                const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities')
-                let data = await response.json()
-
-                setActivities(data)
+                const result = await fetchAllActivities();
+                setActivities(result);
             }
             catch (err) {
                 console.log(error)
             }
         }
-        getActivities()
+        getActivities();
+        
     }, [])
-    async function createActivity() {
-        try {
-            const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
 
-                body: JSON.stringify({
-                    name: activityName,
-                    description: activityDescription
-                })
-            })
-            let data = await response.json()
-
-        } catch (err) {
-            console.error("Not created")
-        }
-    }
 
     return (
         <>
         <br></br>
             {
-                loggedIn ? <fieldset className='create-activity' onSubmit={(event) => {
-                    event.preventDefault()
-                    createActivity()
+                loggedIn ? <fieldset className='create-activity' onSubmit={async (event) => {
+                    event.preventDefault();
+                    let newActivity = await createActivity(token, activityName, activityDescription);
                 }}>
                     
                    <legend><b><i>Create your own activity!</i></b></legend><br></br>
