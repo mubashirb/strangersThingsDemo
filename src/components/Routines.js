@@ -162,12 +162,6 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                 }) : null
                 }
             </div>
-
-
-
-
-
-            
         </>
     )
 }

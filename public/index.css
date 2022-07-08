@@ -11,12 +11,13 @@
 }
 
 a:link{
-    color:hotpink;
+    color: white;
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
     text-decoration: none;
 }
 
 a:visited {
-    color:hotpink;
+    color:lightblue;
 }
 
 
@@ -100,24 +101,27 @@ h1 {
     display: flex;
     justify-content: space-around;
     box-shadow: 1em 0 1em black; 
-    background-color: White;
+    background-color: black;
     padding-bottom: 15px;
     padding-top: 15px;
-    
+    text-shadow: #38eeff;
 }
-  
-
 
 .link2 {
     border:0cm 2px solid;
     padding: 20px;
     text-align: center;
     padding-top: 30px;
+    
 }
 .link2:hover {
-    box-shadow: .1em 0 .1em black;
+    box-shadow: .5em 0 .5em lightblue;
 }
-
+.logOut{
+color: red;
+text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #e70a0a, 0 0 50px #e70a0a;
+text-decoration: none;
+{
 
 /*end of nav bar*/
 

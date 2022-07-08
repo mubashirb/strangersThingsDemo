@@ -27,7 +27,7 @@ export default function Navbar({loggedIn, Logout}){
         !loggedIn?<Link className="link2" to="Register"> Sign Up</Link>:null
         }
         {
-        !loggedIn?<Link className="link2" to="Login"> Login </Link>: <span className="link" onClick={Logout}> Logout </span>
+        !loggedIn?<Link className="link2" to="Login"> Login </Link>: <span className="logOut" onClick={Logout}> Logout </span>
         }
 </div>
         </>
