@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { fetchAllPublicRoutines, createRoutine, deleteRoutine, addActivityToRoutine } from "../api";
+import { fetchAllPublicRoutines, createRoutine, deleteRoutine, addActivityToRoutine, fetchAllActivities } from "../api";
 
-export default function Routines({ token, loggedIn, userId, routines, setRoutines, activities }) {
+export default function Routines({ token, loggedIn, userId, routines, setRoutines, activities, setActivities }) {
     const [activityId, setActivityId] = useState(0);
     const [routineName, setRoutineName] = useState('');
     const [routineGoal, setRoutineGoal] = useState('');
@@ -10,17 +10,19 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
     const [duration, setDuration] = useState(0);
 
     useEffect(() => {
-        async function getAllPublicRoutines() {
+        async function getAllPublicRoutinesAndActivites() {
             try {
-                const result = await fetchAllPublicRoutines();
-                result.reverse();
-                setRoutines(result);
+                const routinesResult = await fetchAllPublicRoutines();
+                const activitiesResult = await fetchAllActivities();
+                routinesResult.reverse();
+                setRoutines(routinesResult);
+                setActivities(activitiesResult);
             } catch (err) {
                 console.error("Error fetching routines!");
             }
         }
-        getAllPublicRoutines();
-        // getActivities();
+        getAllPublicRoutinesAndActivites();
+
     }, [routines.length])
  
     return (
@@ -63,19 +65,6 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                         {
                                         routine.creatorId === userId ? <button className="routineBtn" onClick={() => { deleteRoutine(token, routine.id) }}>Delete</button> : null
                                         }
-                                        <p><span className='label'>--Activities--</span></p>
-                                        
-                                        {
-                                         routine.activities ? routine.activities.map(activity => 
-                                            <div className="routineActivity" key={activity.id}>
-                                              <h3>{activity.name}</h3>
-                                              <p><span className='label'>Description: </span>{activity.description}</p>
-                                              <p><span className='label'>Duration: </span>{activity.duration}</p>
-                                              <p><span className='label'>Count: </span>{activity.count}</p>
-                                            </div>
-                                          ) : null
-                                        }
-
                                         {
                                             routine.creatorId===userId ? 
                                                 <form onSubmit={(event) => {
@@ -95,7 +84,19 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                                     <button type="submit" className="addActivityBtn">Add Activity</button>
                                                 </form> : null
                                         }
-                            
+                                        <p><span className='label'>--Activities--</span></p>
+                                        
+                                        {
+                                         routine.activities ? routine.activities.map(activity => 
+                                            <div className="routineActivity" key={activity.id}>
+                                              <h3>{activity.name}</h3>
+                                              <p><span className='label'>Description: </span>{activity.description}</p>
+                                              <p><span className='label'>Duration: </span>{activity.duration}</p>
+                                              <p><span className='label'>Count: </span>{activity.count}</p>
+                                            </div>
+                                          ) : null
+                                        }
+                          
                             
                         </div>
                     )
