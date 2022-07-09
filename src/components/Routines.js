@@ -9,40 +9,51 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
     const [count, setCount] = useState(0);
     const [duration, setDuration] = useState(0);
 
-    useEffect(() => {
-        async function getAllPublicRoutinesAndActivites() {
-            try {
-                const routinesResult = await fetchAllPublicRoutines();
-                const activitiesResult = await fetchAllActivities();
-                routinesResult.reverse();
-                setRoutines(routinesResult);
-                setActivities(activitiesResult);
-            } catch (err) {
-                console.error("Error fetching routines!");
-            }
+    async function getAllPublicRoutinesAndActivites() {
+        try {
+            const routinesResult = await fetchAllPublicRoutines();
+            const activitiesResult = await fetchAllActivities();
+            routinesResult.reverse();
+            setRoutines(routinesResult);
+            setActivities(activitiesResult);
+        } catch (err) {
+            console.error("Error fetching routines!");
         }
+    }
+
+    useEffect(() => {
+        
         getAllPublicRoutinesAndActivites();
 
-    }, [routines.length])
+    }, [])
  
     return (
         <>
          {/* //ADD ROUTINE */}
          <div>
-                {loggedIn ?
+                {   loggedIn ?
                     <fieldset>
                         <legend>Add Routine</legend>
                         <div className="formAddRoutine"><center>
                             <div>Add A Monkey Pox Routine</div>
                             <br></br>
-                            <form onSubmit={(event) => {
+                            <form onSubmit={async (event) => {
                                 event.preventDefault();
-                                createRoutine(token, routineName, routineGoal, isPublic);
+                                const result = await createRoutine(token, routineName, routineGoal, isPublic);
+                                if(!result.error){
+                                    getAllPublicRoutinesAndActivites();
+
+                                } else {
+                                    alert(result.error);
+                                }
                             }}>
 
                                 <input type="text" placeholder="Routine name" onChange={(event) => { setRoutineName(event.target.value) }}></input>
                                 <br></br>
                                 <input type="text" placeholder="Routine goal" onChange={(event) => { setRoutineGoal(event.target.value) }}></input>
+                                <br></br>
+                                <label>Public Routine? </label>
+                                <input type="checkbox" value={isPublic} onChange={(event)=>{ setIsPublic(event.target.value) }}></input>
                                 <br></br>
                                 <button type="submit" className="btnAddRoutine">Add Routine</button>
                             </form>

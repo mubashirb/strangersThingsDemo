@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllActivities } from '../api';
+import { fetchAllActivities, createActivity } from '../api';
 
 export default function Activities({loggedIn, token, activities, setActivities}){
 
     const [activityName, setActivityName] = useState('');
     const [activityDescription, setActivityDescription] = useState('');
-    useEffect(() => {
-
-        async function getActivities() {
-            try {
-                const result = await fetchAllActivities();
-                setActivities(result);
-            }
-            catch (err) {
-                console.log(error)
-            }
+    
+    async function getAllActivities() {
+        try {
+            const result = await fetchAllActivities();
+            result.reverse();
+            setActivities(result);
         }
-        getActivities();
+        catch (err) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getAllActivities();
         
     }, [])
 
@@ -24,19 +26,23 @@ export default function Activities({loggedIn, token, activities, setActivities})
     return (
         <>
         <br></br>
-            {
-                loggedIn ? <fieldset className='create-activity' onSubmit={async (event) => {
+            {   loggedIn ? <form onSubmit={async (event) => {
                     event.preventDefault();
-                    let newActivity = await createActivity(token, activityName, activityDescription);
+                    const result = await createActivity(token, activityName, activityDescription);
+                    if(!result.error) {
+                        getAllActivities();
+                    } else {
+                        alert(result.error);
+                    }
                 }}>
-                    
-                   <legend><b><i>Create your own activity!</i></b></legend><br></br>
-                    <input type="text" placeholder="Activity Name" onChange={(event) => { setActivityName(event.target.value) }} ></input>
-                    <input type="text" placeholder="Description" onChange={(event) => { setActivityDescription(event.target.value) }} ></input>
-                    <button className='create-button' type="submit"> CREATE</button>
-                    <br></br>
-                 
-                </fieldset>: null
+                    <fieldset className='create-activity'>
+                        <legend><b><i>Create your own activity!</i></b></legend><br></br>
+                        <input type="text" placeholder="Activity Name" required onChange={(event) => { setActivityName(event.target.value) }} ></input>
+                        <input type="text" placeholder="Description" onChange={(event) => { setActivityDescription(event.target.value) }} ></input>
+                        <button className='create-button' type="submit"> CREATE</button>
+                        <br></br>
+                    </fieldset>
+                </form>: null
             }
             <h1> Activities</h1>
             {
