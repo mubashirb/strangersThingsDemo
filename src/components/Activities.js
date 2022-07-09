@@ -30,9 +30,9 @@ export default function Activities({loggedIn, token, activities, setActivities})
                     let newActivity = await createActivity(token, activityName, activityDescription);
                 }}>
                     
-                   <legend><b><i>Create your own activity!</i></b></legend><br></br>
-                    <input type="text" placeholder="Activity Name" onChange={(event) => { setActivityName(event.target.value) }} ></input>
-                    <input type="text" placeholder="Description" onChange={(event) => { setActivityDescription(event.target.value) }} ></input>
+                   <legend className='activity-legend'><b><i>Create your own activity!</i></b></legend><br></br>
+                    <div><input type="text" placeholder="Activity Name" onChange={(event) => { setActivityName(event.target.value) }} ></input></div>
+                    <div><input type="text" placeholder="Description" onChange={(event) => { setActivityDescription(event.target.value) }} ></input></div>
                     <button className='create-button' type="submit"> CREATE</button>
                     <br></br>
                  
