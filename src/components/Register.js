@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
 
-export default function Register({ setToken, setLoggedIn, setUserId }) {
-  const [username, setUsername] = useState("")
+export default function Register({ username, setUsername, setToken, setLoggedIn, setUserId }) {
+  
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
 
@@ -15,9 +15,9 @@ export default function Register({ setToken, setLoggedIn, setUserId }) {
       <br></br>
         <fieldset>
           
-          <legend>Sign Up!</legend>
+          
           <div className="formLogIn"><center>
-            <div>Register for Monkey Pox</div>
+            <div>Sign Up for Monkey Pox!</div>
             <br></br>
             <form onSubmit={async (event) => {
               event.preventDefault()
@@ -26,16 +26,18 @@ export default function Register({ setToken, setLoggedIn, setUserId }) {
               } else {
                 let result = await registerUser(username, password);
                 if (!result.error) {
-                  setToken(result.token)
-                  setLoggedIn(true)
-                  setUserId(result.user.id)
-                  localStorage.setItem("userId", result.user.id)
-                  localStorage.setItem("token", result.token)
-                  alert("Sucessfully Registered with Monkey Pox...Redirecting to your Home Page")
-                  navigate("/Home")
+                  setToken(result.token);
+                  setLoggedIn(true);
+                  setUserId(result.user.id);
+                  setUsername(result.user.username);
+                  localStorage.setItem("userId", result.user.id);
+                  localStorage.setItem("token", result.token);
+                  localStorage.setItem("user", result.user.username);
+                  alert("Sucessfully Registered with Monkey Pox...Redirecting to your Home Page");
+                  navigate("/Home");
                 }
                 else {
-                  alert("Username Already Exists!")
+                  alert("Username Already Exists!");
                 }
               }
             }}>
@@ -45,7 +47,7 @@ export default function Register({ setToken, setLoggedIn, setUserId }) {
               {/* <label>Desired Password</label> */}
               <input type="password" placeholder="Desired Password" required value={password} onChange={(event) => { setPassword(event.target.value) }}></input>
               <br></br>
-              <button type="submit">REGISTER</button>
+              <button className="register-btn" type="submit">REGISTER</button>
             </form>
             <br></br>
             <div>Already have Monkey Pox Credentials?</div>
