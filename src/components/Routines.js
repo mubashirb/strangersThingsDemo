@@ -38,8 +38,8 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
         <>
         
          {/* //ADD ROUTINE */}
-         <div>
-             <br></br>
+            <div>
+            <br></br>
                 {   loggedIn ?
                 
                     <fieldset className='routine-box'>
@@ -48,10 +48,10 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                             <br></br>
                             <div>Add A Monkey Pox Routine</div>
                             <br></br>
-                            <form onSubmit={async (event) => {
+                            <form onSubmit={ async (event) => {
                                 event.preventDefault();
                                 const result = await createRoutine(token, routineName, routineGoal, isPublic);
-                                if(!result.error){
+                                if(!result.error) {
                                     getAllPublicRoutinesAndActivites();
 
                                 } else {

@@ -71,12 +71,26 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                                         <p><span>Goal: </span>{routine.goal}</p>
                                         <p><span>Creator: </span>{routine.creatorName}</p>
                                         <p><span>Public? </span>{routine.isPublic}</p>
-                                        {
-                                        routine.creatorId === userId ? <button className="routineBtn">Edit Routine</button> : null
-                                        }
-                                        {
-                                        routine.creatorId === userId ? <button className="routineBtn" onClick={() => { deleteRoutine(token, routine.id) }}>Delete</button> : null
-                                        }
+                                        <form onSubmit={ async (event) => {
+                                                event.preventDefault();
+                                                const result = await editRoutine(token, routine.id, routineName, routineGoal);
+                                                if(!result.error){
+                                                    getAllUserRoutinesAndActivites(username);
+
+                                                }else{
+                                                    alert(result.error);
+                                                }
+                                            }}>
+                                                    <input type="text" placeholder="name" value={routineName} onChange={(event) => { setRoutineName(event.target.value) }}></input>
+                                                    <br></br>
+                                                    <input type="text" placeholder="goal" value={routineGoal} onChange={(event) => { setRoutineGoal(event.target.value) }}></input>
+                                            </form>
+                                        
+                                        <button className="routineBtn">Edit Routine</button>
+                                        
+                                        
+                                        <button className="routineBtn" onClick={() => { deleteRoutine(token, routine.id) }}>Delete Routine</button> : null
+                                        
                                         {
                                             routine.creatorId===userId ? 
                                                 <form onSubmit={(event) => {
@@ -87,7 +101,7 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                                                         className="addActivity"
                                                         value={activityId}
                                                         onChange={(event) => setActivityId(event.target.value)}>
-                                                        {activities.map(selectedOption => {return <option key={selectedOption.id} value={selectedOption.id}>{selectedOption.name}</option>})}
+                                                        { activities.map(selectedOption => {return <option key={selectedOption.id} value={selectedOption.id}>{selectedOption.name}</option>})}
                                                         
                                                     </select>
                                                     <input type="text" placeholder="count" onChange={(event) => { setCount(event.target.value) }}></input>
@@ -101,10 +115,24 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                                         {
                                          routine.activities ? routine.activities.map(activity => 
                                             <div className="routineActivity" key={activity.id}>
-                                              <h3>{activity.name}</h3>
-                                              <p><span className='label'>Description: </span>{activity.description}</p>
-                                              <p><span className='label'>Duration: </span>{activity.duration}</p>
-                                              <p><span className='label'>Count: </span>{activity.count}</p>
+                                                <h3>{activity.name}</h3>
+                                                <p><span className='label'>Description: </span>{activity.description}</p>
+                                                <p><span className='label'>Duration: </span>{activity.duration}</p>
+                                                <p><span className='label'>Count: </span>{activity.count}</p>
+                                                <form id = "editActivity" onSubmit={ async (event) => {
+                                                        event.preventDefault();
+                                                        const result = await editActivity(token, activity.routineActivityId, count, duration);
+                                                        if(!result.error){
+                                                            getAllUserRoutinesAndActivites(username);
+                                                        }else{
+                                                            alert(result.error);
+                                                        }
+                                                        }}>
+                                                        <input type="text" placeholder="count" value={count} onChange={(event) => { setCount(event.target.value) }}></input>
+                                                        <br></br>
+                                                        <input type="text" placeholder="duration" value={duration} onChange={(event) => { setDuration(event.target.value) }}></input>
+                                                        <button type="submit" className="submitActivityBtn">Submit Edit</button>
+                                                </form>
                                             </div>
                                           ) : null
                                         }
