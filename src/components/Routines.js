@@ -131,7 +131,7 @@ export default function Routines({ token, loggedIn, userId, routines, setRoutine
                                                     <button type="submit" className="addActivityBtn">Add Activity</button>
                                                 </form> : null
                                         }
-                                        <p><span className='label'>--Activities--</span></p>
+                                        <p><center><span className='label'>--Activities--</span></center></p>
                                         
                                         {
                                          routine.activities ? routine.activities.map(activity => 

@@ -32,9 +32,11 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
         return (
             <>
             <div>
-                    <fieldset>
-                        <legend>Add Routine</legend>
+                <br></br>
+                    <fieldset className="routine-box">
+                        
                         <div className="formAddRoutine"><center>
+                            <br></br>
                             <div>Add A Monkey Pox Routine</div>
                             <br></br>
                             <form onSubmit={async (event) => {
@@ -61,7 +63,7 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                         </center></div>
                     </fieldset>
             </div>
-            
+            <h1></h1>
             <div id='allRoutines'>
                 {   routines ? routines.map(routine => {
                                 return (
@@ -96,15 +98,18 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                                                     <button type="submit" className="addActivityBtn">Add Activity</button>
                                                 </form> : null
                                         }
-                                        <p><span className='label'>--Activities--</span></p>
+                                        <p><center><span className='label'>--Activities--</span></center></p>
                                         
                                         {
                                          routine.activities ? routine.activities.map(activity => 
                                             <div className="routineActivity" key={activity.id}>
-                                              <h3>{activity.name}</h3>
+                                                
+                                            <fieldset className="routines">
+                                              <legend><h3>{activity.name}</h3></legend>
                                               <p><span className='label'>Description: </span>{activity.description}</p>
                                               <p><span className='label'>Duration: </span>{activity.duration}</p>
                                               <p><span className='label'>Count: </span>{activity.count}</p>
+                                            </fieldset>
                                             </div>
                                           ) : null
                                         }
@@ -114,6 +119,7 @@ export default function MyRouintes({token, userId, username, routines, setRoutin
                     )
                 }) : null
                 }
+                <br></br>
             </div>
             </>
             )
