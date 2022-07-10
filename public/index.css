@@ -1,33 +1,55 @@
 /* css for whole page*/
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-* {
+
+input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 15px;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    appearance: none;
-    -webkit-appearance: none;
-    
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
+    border-color: #38eeff;
+}
+
+input[type=password]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    border-color: #38eeff;
 }
 
 a:link{
-    color:black;
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
     text-decoration: none;
 }
 
 a:visited {
-    color:black;
+    color:lightblue;
 }
 
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: audiowide, sans-serif;
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: #faeb2c;
     overflow-x: hidden;
     font-size: 16px;
+}
+fieldset {
+    border-radius: 30px;
+    border: skyblue solid 5px
 }
 
 @media only screen and (max-width: 768px) {
@@ -48,10 +70,11 @@ h1 {
 .home-row {
     width: 100%;
     display: flex;
-    border-top: 2px solid black;
+    border-top: 2px solid hotpink;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom: 2px solid hotpink;
 }
 
 .cards {
@@ -63,13 +86,13 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: rgb(125, 250, 208, 0.25);
+    background-color: #e900ff;
     z-index: 1;
     box-shadow: .3em 0 .3em black;
 }
 
 .cards:hover {
-    background-color: rgb(125, 250, 208, 0.5);
+    background-color: rgba(100, 43, 88, 0.5);
 }
 
 
@@ -78,12 +101,6 @@ h1 {
     text-align: center;
 }
 
-.arrow {
-    display: flex;
-    align-self: center;
-    font-size: large;
-    margin: 1em;
-}
 
 .images {
     width: 25em;
@@ -99,53 +116,79 @@ h1 {
 .nav{
     display: flex;
     justify-content: space-around;
-    box-shadow: 1em 0 1em black;
-    background-color: #00b2fe;
+    box-shadow: 1em 0 1em black; 
+    background-color: black;
     padding-bottom: 15px;
     padding-top: 15px;
-    
-}
-  
-.link {
-    border-bottom: black 2px solid;
-    padding: 20px;
-}
-.link:hover {
-    box-shadow: .1em 0 .1em black;
+    text-shadow: #38eeff;
 }
 
+.link2 {
+    border: 2px solid;
+    border-radius: 50px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 30px;
+    
+
+    
+}
+.link2:hover {
+    box-shadow: 2px 2px 50px 2px lightblue;
+    
+}
+.logOut{
+    color: red;
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #e70a0a, 0 0 50px #e70a0a;
+    text-decoration: none;
+    padding-top: 30px;
+    border: 2px solid red;
+    border-radius: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.logOut:hover {
+    box-shadow: 2px 2px 50px 2px red;
+    cursor: pointer;
+}
 
 /*end of nav bar*/
 
 /*beginning of login*/
 
 .formLogIn {
-    background-color: azure;
-}
 
-.formLogIn * {
-    display: flex-wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
     color: darkblue;
+    background-color: #e900ff;
+   
+}
+.login-btn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+
 }
 
 /* END OF LOGIN*/
 
 /*START OF REGISTER*/
-.formRegister {
-    background-color: azure;
-}
 
-.formRegister * {
-    display: flex-wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+
+.formRegister  {
+    
+    background-color: #e900ff;
     color: darkblue;
+    
+}
+.register-btn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /*END OF REGISTER*/
@@ -154,87 +197,130 @@ h1 {
 
 iframe 
 {
- display: block; 
- width: 100%; 
- border: none; 
- overflow-y: auto; 
- overflow-x: hidden;
+    display: block; 
+    width: 100%; 
+    border: none; 
+    overflow-y: auto; 
+    overflow-x: hidden;
 }
 
 /*error page end*/
 
 /*activities page*/
+.activity-legend {
+    text-align: center;
+    
+}
+.create-button {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+}
 
 .create-activity {
-    background-color: azure;
+    background-color: #e900ff;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 .activities {
-    background-color: azure;
+    background-color: #e900ff;
     border-radius: 10px;
+    
+    
+}
+
+.activity-row {
+    width: 49%; 
+    display: inline-block;
+    justify-content: center;
+    flex-grow: 1;
+    
 }
 
 /*end of activities page*/ 
 
+
 /*routines page*/
 
+.routine{
+    background-color: #e900ff;
+    border: solid 5px #38eeff;
+    border-radius: 15px;
+    
+}
 .routines {
-    background-color: azure;
+    background-color: #f096f8;
+    border: solid blue 3px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.formAddRoutine {
+    background-color: #e900ff;
     border-radius: 10px;
+} 
+
+.routine-box {
+    background-color: #e900ff;
+}
+.routineBtn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+    
+}
+.btnAddRoutine {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+}
+.submitActivityBtn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+}
+.addActivityBtn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
+}
+.editActivityBtn {
+    text-align: center;
+    font-size: 14px;
+    font-family: audiowide;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /*end of routines page*/
 
-/*css for home page*/
-
-  h1 {
-      text-align: center;
-  }
-
-  .home-row {
-      width: 100%;
-      display: flex;
-      border-top: 2px solid black;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-  }
-
-  .cards {
-      width: 25em;
-      border-radius: 10px;
-      margin: 2em;
-      padding: 1em;
-      text-align: center;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      background-color: rgba(73, 75, 74, 0.25);
-      z-index: 1;
-  }
-
-  .cards:hover {
-      background-color: rgb(73, 75, 74, 0.5);
-  }
 
 
-  .centered {
-      text-align: center;
-  }
-
-  .images {
-      width: 25em;
-      margin: 2em;
-  }
-  /*end of home page*/
-
-  /*footer*/
+  /* footer */
   .footer {
       text-align: center;
       padding-bottom: 15px;
+
+      
   }
-  /*end of footer*/
+  /* end of footer */
 
   
 
 
-  /*end of home page*/
+  
+/*TOGGLE EDIT ACTIVITY*/
+.hidden{
+    display:none;
+}
